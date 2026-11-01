@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include "dynamic_massiv.h"
+#ifdef _WIN32
 #include <windows.h>
+#endif
 
 static void print_status(const char *msg, size_t size, size_t cap) {
     printf("%s: size=%zu, capacity=%zu\n", msg, size, cap);
 }
 
 int main(void) {
+#ifdef _WIN32
     SetConsoleOutputCP(65001);
+#endif
     DynamicMassiv arr;
     DMError err;
     int val;
